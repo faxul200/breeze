@@ -1,699 +1,437 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2B AI Companies Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>드라이버 볼스피드 70 이상 올리는 방법</title>
     <style>
-        :root {
-            --primary-color: #4e73df;
-            --secondary-color: #1cc88a;
-            --dark-color: #5a5c69;
-            --light-color: #f8f9fc;
-        }
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #f8f9fc;
+            font-family: 'Nanum Gothic', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-        .navbar {
-            background-color: white;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-        }
-        .sidebar {
-            min-height: 100vh;
-            background-color: var(--primary-color);
-            background-image: linear-gradient(180deg, var(--primary-color) 10%, #224abe 100%);
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-        }
-        .sidebar-brand {
-            height: 4.375rem;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 800;
-            padding: 1.5rem 1rem;
+        header {
             text-align: center;
-            letter-spacing: 0.05rem;
-            z-index: 1;
+            padding: 30px 0;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
-        .sidebar-brand-icon {
-            font-size: 2rem;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
-        .sidebar-brand-text {
-            display: inline;
-            font-size: 1.2rem;
+        h2 {
+            font-size: 1.8em;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
         }
-        .sidebar-divider {
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            margin: 0 1rem 1rem;
+        h3 {
+            font-size: 1.4em;
+            color: #2980b9;
+            margin-top: 30px;
         }
-        .sidebar-heading {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.13rem;
-            text-transform: uppercase;
-            padding: 0 1rem;
-            margin-bottom: 1rem;
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
         }
-        .nav-item {
+        .intro {
+            font-size: 1.2em;
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 30px;
+        }
+        .section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tip-box {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #1abc9c;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background-color: #fdedec;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #e74c3c;
+            margin: 20px 0;
+        }
+        .video-container {
             position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 30px;
         }
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 700;
-            padding: 0.75rem 1rem;
-            font-size: 0.85rem;
-        }
-        .nav-link:hover {
-            color: white;
-        }
-        .nav-link.active {
-            color: white;
-            font-weight: 700;
-        }
-        .nav-link i {
-            margin-right: 0.25rem;
-            font-size: 0.85rem;
-        }
-        .card {
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
-            margin-bottom: 1.5rem;
-        }
-        .card-header {
-            background-color: #f8f9fc;
-            border-bottom: 1px solid #e3e6f0;
-        }
-        .card-body {
-            padding: 1.25rem;
-        }
-        .company-card {
-            transition: transform 0.3s;
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
         }
-        .company-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.3);
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
         }
-        .badge-funding {
-            background-color: var(--primary-color);
-            color: white;
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-top: 10px;
         }
-        .badge-location {
-            background-color: var(--secondary-color);
-            color: white;
+        .practice-program {
+            background-color: #f5eef8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
-        .badge-industry {
-            background-color: var(--dark-color);
-            color: white;
-        }
-        .stats-card {
-            border-left: 0.25rem solid;
-            border-radius: 0.35rem;
-        }
-        .stats-card.primary {
-            border-left-color: var(--primary-color);
-        }
-        .stats-card.success {
-            border-left-color: var(--secondary-color);
-        }
-        .stats-card.info {
-            border-left-color: #36b9cc;
-        }
-        .stats-card.warning {
-            border-left-color: #f6c23e;
-        }
-        .stats-card-body {
-            padding: 0.75rem 1.25rem;
-        }
-        .stats-card-heading {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-        }
-        .stats-card-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 0;
-        }
-        .stats-card-icon {
-            font-size: 2rem;
-            color: #dddfeb;
-        }
-        .table-responsive {
-            overflow-x: auto;
-        }
-        #companyTable th {
-            cursor: pointer;
-        }
-        .search-container {
-            margin-bottom: 1.5rem;
-        }
-        .footer {
-            padding: 2rem 0;
-            background-color: white;
-            border-top: 1px solid #e3e6f0;
-        }
-        .company-logo {
-            width: 50px;
-            height: 50px;
-            background-color: #f1f1f1;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        #map {
-            height: 400px;
+        table {
             width: 100%;
-            border-radius: 0.35rem;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
-        .chart-container {
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .conclusion {
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            margin: 30px 0;
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        .reference-list {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .reference-list h3 {
+            color: #2c3e50;
+        }
+        .reference-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .reference-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
             position: relative;
-            height: 300px;
+        }
+        .reference-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
         }
     </style>
 </head>
 <body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div class="sidebar col-lg-2 d-none d-lg-block">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="sidebar-brand-icon">
-                    <i class="bi bi-robot"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">AI Insights</div>
-            </a>
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">Dashboard</div>
-            <div class="nav-item">
-                <a class="nav-link active" href="#summary">
-                    <i class="bi bi-speedometer2"></i>
-                    <span>Summary</span>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a class="nav-link" href="#companies">
-                    <i class="bi bi-building"></i>
-                    <span>Companies</span>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a class="nav-link" href="#map-section">
-                    <i class="bi bi-geo-alt"></i>
-                    <span>Map View</span>
-                </a>
-            </div>
-            <div class="nav-item">
-                <a class="nav-link" href="#analytics">
-                    <i class="bi bi-graph-up"></i>
-                    <span>Analytics</span>
-                </a>
-            </div>
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">Data</div>
-            <div class="nav-item">
-                <a class="nav-link" href="#table">
-                    <i class="bi bi-table"></i>
-                    <span>Table View</span>
-                </a>
-            </div>
+    <header>
+        <h1>드라이버 볼스피드 70 이상 올리는 방법</h1>
+        <p>효과적인 연습 방법과 실전 적용 팁</p>
+    </header>
+
+    <div class="intro">
+        <p>골프에서 드라이버 비거리는 많은 골퍼들의 로망입니다. 볼스피드 70m/s 이상은 아마추어 골퍼들이 꿈꾸는 목표이며, 이를 달성하면 250m 이상의 비거리를 기대할 수 있습니다. 이 블로그에서는 드라이버 볼스피드를 70 이상으로 올리는 효과적인 방법과 연습 루틴을 자세히 알아보겠습니다.</p>
+    </div>
+
+    <div class="section" id="understanding-basics">
+        <h2>1. 기본 원리 이해하기</h2>
+        <p>드라이버 볼스피드를 향상시키기 위해서는 먼저 기본적인 원리를 이해해야 합니다. 볼스피드는 클럽헤드 스피드와 임팩트 효율성에 직접적인 영향을 받습니다.</p>
+        
+        <h3>1.1 올바른 셋업과 기본기</h3>
+        <p>모든 좋은 스윙은 올바른 셋업에서 시작됩니다. 드라이버 볼스피드 향상을 위한 기본적인 셋업 요소는 다음과 같습니다:</p>
+        <ul>
+            <li>공의 위치: 왼발 뒤꿈치 안쪽 선에 오도록 배치</li>
+            <li>상체 기울기: 머리가 클럽 헤드보다 더 오른쪽에 위치하도록 상체 기울이기</li>
+            <li>그립: 견고하게 잡되 어깨와 손목이 경직되지 않도록 릴렉스</li>
+            <li>스탠스 너비: 비거리를 위해 넓게 서되, 체중이동이 자연스럽게 이루어질 수 있는 적절한 너비 유지</li>
+        </ul>
+        
+        <div class="image-placeholder">
+            <!-- 이미지 추가 예정: 올바른 드라이버 셋업 자세 -->
+            <p class="image-caption">올바른 드라이버 셋업 자세</p>
         </div>
-
-        <!-- Main Content -->
-        <div class="col-lg-10 col-md-12 p-0">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white mb-4 shadow-sm">
-                <div class="container-fluid">
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                    <i class="bi bi-person-circle"></i>
-                                    <span class="d-none d-lg-inline text-gray-600 small">Admin</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                    <li><a class="dropdown-item" href="#">Activity Log</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Content -->
-            <div class="container-fluid px-4">
-                <h1 class="h3 mb-4 text-gray-800">B2B AI Companies Dashboard</h1>
-                <p class="mb-4">A comprehensive overview of pre-Series B American B2B companies in the AI technology space.</p>
-
-                <!-- Summary Section -->
-                <section id="summary" class="mb-4">
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card stats-card primary h-100">
-                                <div class="card-body stats-card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="stats-card-heading">Total Companies</div>
-                                            <div class="stats-card-value" id="totalCompanies">15</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="bi bi-building stats-card-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card stats-card success h-100">
-                                <div class="card-body stats-card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="stats-card-heading">Seed Stage</div>
-                                            <div class="stats-card-value" id="seedStage">7</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="bi bi-graph-up stats-card-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card stats-card info h-100">
-                                <div class="card-body stats-card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="stats-card-heading">Series A</div>
-                                            <div class="stats-card-value" id="seriesA">3</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="bi bi-cash-stack stats-card-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card stats-card warning h-100">
-                                <div class="card-body stats-card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="stats-card-heading">Average Employees</div>
-                                            <div class="stats-card-value" id="avgEmployees">25</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="bi bi-people stats-card-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Analytics Section -->
-                <section id="analytics" class="mb-4">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Companies by Funding Stage</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="fundingStageChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">AI Technology Focus</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-container">
-                                        <canvas id="technologyFocusChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Map Section -->
-                <section id="map-section" class="mb-4">
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Company Locations</h6>
-                        </div>
-                        <div class="card-body">
-                            <div id="map"></div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Companies Section -->
-                <section id="companies" class="mb-4">
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Featured Companies</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="search-container">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-search"></i></span>
-                                    <input type="text" class="form-control" id="companySearch" placeholder="Search companies...">
-                                </div>
-                            </div>
-                            <div class="row" id="companyCards">
-                                <!-- Company cards will be dynamically inserted here -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Table Section -->
-                <section id="table" class="mb-4">
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Company Details</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="companyTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th onclick="sortTable(0)">Company <i class="bi bi-arrow-down-up"></i></th>
-                                            <th onclick="sortTable(1)">Location <i class="bi bi-arrow-down-up"></i></th>
-                                            <th onclick="sortTable(2)">Funding Stage <i class="bi bi-arrow-down-up"></i></th>
-                                            <th onclick="sortTable(3)">Founded <i class="bi bi-arrow-down-up"></i></th>
-                                            <th onclick="sortTable(4)">Employees <i class="bi bi-arrow-down-up"></i></th>
-                                            <th onclick="sortTable(5)">Industry <i class="bi bi-arrow-down-up"></i></th>
-                                            <th>Contact</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Table rows will be dynamically inserted here -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Footer -->
-            <footer class="footer mt-auto">
-                <div class="container">
-                    <div class="text-center">
-                        <span>© 2025 AI Technology Consulting Firm</span>
-                    </div>
-                </div>
-            </footer>
+        
+        <h3>1.2 효율적인 에너지 전달 원리</h3>
+        <p>볼스피드를 높이기 위해서는 신체의 에너지를 효율적으로 클럽을 통해 공에 전달해야 합니다:</p>
+        <ul>
+            <li>클럽을 던지는 포인트를 이해하고 양 팔과 몸 전체 움직임을 통해 클럽이 던져지는 스피드 느끼기</li>
+            <li>타격에 대한 올바른 이해: 볼스피드를 높이려면 타격에 대한 이해가 중요</li>
+            <li>오른쪽에서 내려오는 스윙 궤도 활용: 볼스피드 70m/s 이상을 위해 필수적</li>
+        </ul>
+        
+        <div class="tip-box">
+            <p><strong>프로 팁:</strong> 볼스피드는 단순히 힘으로만 올리는 것이 아니라 올바른 타이밍과 효율적인 에너지 전달을 통해 향상됩니다. 과도한 힘을 주기보다는 올바른 시퀀스와 타이밍에 집중하세요.</p>
         </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <div class="section" id="practice-methods">
+        <h2>2. 단계별 연습 방법</h2>
+        
+        <h3>2.1 백스윙 연습</h3>
+        <p>효과적인 백스윙은 파워 있는 다운스윙의 기초가 됩니다:</p>
+        <ul>
+            <li><strong>코킹 타이밍 연습:</strong> 백스윙 시 헤드 무게가 느껴지도록 왼손을 누르듯이 올리며 코킹</li>
+            <li><strong>손목 릴렉스 훈련:</strong> 백스윙 시 손목에 힘을 부드럽게 빼는 연습</li>
+            <li><strong>3시 방향 수직낙하 연습:</strong> 준장타자(70~72m/s) 수준으로 올리기 위한 핵심 기술</li>
+        </ul>
+        
+        <div class="video-container">
+            <!-- 영상 임베드 예정 -->
+            <p class="image-caption">백스윙 연습 방법 영상</p>
+        </div>
+        
+        <h3>2.2 다운스윙과 임팩트 연습</h3>
+        <p>볼스피드를 결정짓는 가장 중요한 단계입니다:</p>
+        <ul>
+            <li><strong>오른쪽에서 내려오는 스윙 연습:</strong> 드라이버를 오른쪽에서 내려야 볼스피드 70m/s 이상 달성 가능</li>
+            <li><strong>클럽 던지기 연습:</strong> 헤드 스피드를 극대화하기 위해 클럽을 던지는 포인트 연습</li>
+            <li><strong>BT스윙 방식 훈련:</strong> 힘들이지 않고 비거리를 늘리는 BT스윙 방식 익히기</li>
+        </ul>
+        
+        <div class="image-placeholder">
+            <!-- 이미지 추가 예정: 효과적인 다운스윙 시퀀스 -->
+            <p class="image-caption">효과적인 다운스윙 시퀀스</p>
+        </div>
+        
+        <h3>2.3 체중 이동과 하체 사용 연습</h3>
+        <p>파워의 원천인 하체와 체중 이동을 효과적으로 활용하는 방법:</p>
+        <ul>
+            <li><strong>하체 주도 스윙 연습:</strong> 상체보다 하체를 먼저 움직이는 연습</li>
+            <li><strong>체중 이동 훈련:</strong> 백스윙에서 다운스윙으로 전환 시 효율적인 체중 이동 연습</li>
+            <li><strong>지면 반력 활용 훈련:</strong> 지면을 밀어내는 힘을 활용하여 파워 생성하는 연습</li>
+        </ul>
+        
+        <div class="warning-box">
+            <p><strong>주의사항:</strong> 체중 이동을 과도하게 하면 스윙의 일관성이 떨어질 수 있습니다. 처음에는 작은 움직임으로 시작하여 점차 확대해 나가세요.</p>
+        </div>
+    </div>
+
+    <div class="section" id="training-program">
+        <h2>3. 실전 훈련 프로그램</h2>
+        <p>체계적인 훈련 프로그램을 통해 단계별로 볼스피드를 향상시킬 수 있습니다.</p>
+        
+        <div class="practice-program">
+            <h3>3.1 기초 단계 (볼스피드 60m/s 미만)</h3>
+            <ul>
+                <li><strong>그립과 셋업 교정:</strong> 10분 x 3세트</li>
+                <li><strong>하프 스윙 연습:</strong> 15분 x 3세트</li>
+                <li><strong>체중 이동 연습:</strong> 10분 x 3세트</li>
+                <li><strong>목표:</strong> 기본기 확립과 올바른 스윙 패턴 형성</li>
+            </ul>
+        </div>
+        
+        <div class="practice-program">
+            <h3>3.2 중급 단계 (볼스피드 60-65m/s)</h3>
+            <ul>
+                <li><strong>풀 스윙 연습:</strong> 15분 x 3세트</li>
+                <li><strong>코킹과 릴리스 타이밍 연습:</strong> 10분 x 3세트</li>
+                <li><strong>클럽 던지기 감각 훈련:</strong> 15분 x 3세트</li>
+                <li><strong>목표:</strong> 스윙 스피드 향상과 효율적인 에너지 전달</li>
+            </ul>
+        </div>
+        
+        <div class="practice-program">
+            <h3>3.3 고급 단계 (볼스피드 65-70m/s)</h3>
+            <ul>
+                <li><strong>오른쪽에서 내려오는 스윙 연습:</strong> 15분 x 3세트</li>
+                <li><strong>3시 방향 수직낙하 훈련:</strong> 10분 x 3세트</li>
+                <li><strong>임팩트 강화 훈련:</strong> 15분 x 3세트</li>
+                <li><strong>목표:</strong> 볼스피드 70m/s 이상 달성을 위한 임팩트 강화</li>
+            </ul>
+        </div>
+        
+        <div class="video-container">
+            <!-- 영상 임베드 예정 -->
+            <p class="image-caption">볼스피드 향상을 위한 실전 훈련 영상</p>
+        </div>
+    </div>
+
+    <div class="section" id="practical-tips">
+        <h2>4. 실전 적용 팁</h2>
+        
+        <h3>4.1 연습장에서의 효과적인 훈련 방법</h3>
+        <p>효율적인 연습을 통해 빠르게 볼스피드를 향상시킬 수 있습니다:</p>
+        <ul>
+            <li>단순히 공을 많이 치는 것보다 목적을 가진 연습이 중요</li>
+            <li>매 세션마다 한 가지 포인트에 집중하여 연습</li>
+            <li>볼스피드 측정기를 활용하여 즉각적인 피드백 받기</li>
+        </ul>
+        
+        <h3>4.2 필드에서의 적용 전략</h3>
+        <p>연습장에서 익힌 기술을 실제 라운드에 적용하는 방법:</p>
+        <ul>
+            <li>연습장에서 익힌 감각을 필드에서 바로 적용하지 말고 점진적으로 적용</li>
+            <li>처음에는 80% 파워로 스윙하며 감각 익히기</li>
+            <li>자신감이 생기면 점차 파워를 높여가기</li>
+        </ul>
+        
+        <div class="tip-box">
+            <p><strong>프로 팁:</strong> 실제 라운드에서는 100% 파워보다 90% 파워로 스윙하는 것이 더 일관된 결과를 가져옵니다. 컨트롤과 비거리의 균형을 찾는 것이 중요합니다.</p>
+        </div>
+        
+        <h3>4.3 일상 생활에서의 보조 훈련</h3>
+        <p>골프장 밖에서도 볼스피드 향상을 위한 훈련을 할 수 있습니다:</p>
+        <ul>
+            <li>코어와 하체 근력 강화 운동 병행</li>
+            <li>유연성과 균형감각 향상을 위한 스트레칭 루틴</li>
+            <li>스윙 이미지 트레이닝: 잠들기 전 이상적인 스윙 이미지화</li>
+        </ul>
+    </div>
+
+    <div class="section" id="common-mistakes">
+        <h2>5. 주의사항 및 일반적인 실수</h2>
+        
+        <h3>5.1 피해야 할 실수</h3>
+        <p>볼스피드 향상을 방해하는 일반적인 실수들:</p>
+        <ul>
+            <li>과도한 상체 사용으로 인한 일관성 저하</li>
+            <li>백스윙 시 과도한 손목 사용</li>
+            <li>임팩트 순간 힘을 빼는 실수</li>
+            <li>체중이 뒤쪽에 남아있는 상태로 스윙</li>
+        </ul>
+        
+        <div class="image-placeholder">
+            <!-- 이미지 추가 예정: 일반적인 스윙 실수와 교정 방법 -->
+            <p class="image-caption">일반적인 스윙 실수와 교정 방법</p>
+        </div>
+        
+        <h3>5.2 부상 예방 팁</h3>
+        <p>장기적인 향상을 위한 부상 예방 방법:</p>
+        <ul>
+            <li>충분한 웜업 후 연습 시작</li>
+            <li>과도한 연습량 지양, 질적인 연습에 집중</li>
+            <li>올바른 자세와 기술 습득 후 파워 증가</li>
+            <li>정기적인 휴식과 회복 시간 확보</li>
+        </ul>
+        
+        <div class="warning-box">
+            <p><strong>주의사항:</strong> 볼스피드를 빠르게 올리려다 부상을 입으면 장기간 골프를 할 수 없게 될 수 있습니다. 점진적인 향상을 목표로 하세요.</p>
+        </div>
+    </div>
+
+    <div class="section" id="equipment-advice">
+        <h2>6. 볼스피드 향상을 위한 장비 조언</h2>
+        
+        <h3>6.1 적합한 드라이버 선택</h3>
+        <p>자신의 스윙에 맞는 드라이버 선택이 볼스피드 향상에 중요합니다:</p>
+        
+        <table>
+            <tr>
+                <th>볼스피드</th>
+                <th>권장 샤프트 강도</th>
+                <th>비고</th>
+            </tr>
+            <tr>
+                <td>60m/s</td>
+                <td>R 또는 SR</td>
+                <td>유연한 샤프트로 헤드 스피드 보완</td>
+            </tr>
+            <tr>
+                <td>65m/s</td>
+                <td>SR 또는 S</td>
+                <td>중간 강도로 컨트롤과 비거리 균형</td>
+            </tr>
+            <tr>
+                <td>70m/s</td>
+                <td>S 또는 X</td>
+                <td>강성 샤프트로 파워 극대화</td>
+            </tr>
+        </table>
+        
+        <h3>6.2 볼 선택</h3>
+        <p>자신의 스윙 스피드에 맞는 볼 선택도 중요합니다:</p>
+        <ul>
+            <li>압축률이 자신의 스윙 스피드에 맞는 볼 선택</li>
+            <li>볼스피드가 높을수록 압축률이 높은 볼 사용 고려</li>
+        </ul>
+        
+        <div class="tip-box">
+            <p><strong>프로 팁:</strong> 장비는 보조 수단일 뿐, 기본기와 올바른 스윙 메커니즘이 가장 중요합니다. 장비에 과도하게 의존하기보다 기본기를 탄탄히 다지세요.</p>
+        </div>
+    </div>
+
+    <div class="conclusion">
+        <h2>결론</h2>
+        <p>드라이버 볼스피드 70 이상을 달성하는 것은 단기간에 이루어지는 것이 아닙니다. 올바른 기본기, 효율적인 에너지 전달, 체계적인 훈련 프로그램을 통해 점진적으로 향상시켜 나가야 합니다. 이 블로그에서 소개한 방법들을 꾸준히 실천한다면, 여러분도 볼스피드 70m/s 이상의 장타자가 될 수 있을 것입니다.</p>
+        <p>가장 중요한 것은 자신의 현재 수준을 정확히 파악하고, 단계별로 차근차근 발전해 나가는 것입니다. 하루아침에 이루어지는 것이 아니므로 인내심을 가지고 꾸준히 연습하세요!</p>
+    </div>
+
+    <div class="reference-list">
+        <h3>참고 자료</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=zXJ0jG-FYeo" target="_blank">드라이버 볼스피드 70 이상 보내는 연습방법 (4K)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=72kpWGdHRJU" target="_blank">볼스피드 70m/s 이 방법만으로 충분합니다 (비거리 늘리는법)</a></li>
+            <li><a href="https://www.youtube.com/watch?v=akK1dT0UMrU" target="_blank">힘들이지 않고 비거리가 훅! 느는 방법! 볼 스피드 70 ~ 75</a></li>
+            <li><a href="https://www.youtube.com/watch?v=RtcoHzZHC4g" target="_blank">드라이버 "오른쪽"에서 내려야 볼스피드(70m/s)이상 나올수 있습니다</a></li>
+            <li><a href="https://www.youtube.com/watch?v=WFC-2EuTdBY" target="_blank">비거리 레슨중 가장 효과가 좋은 방법과 원리</a></li>
+            <li><a href="https://blog.naver.com/onul_golf/223554932598" target="_blank">드라이버 잘 치고 싶다. 드라이버 볼스피드 70m/s로 늘리는 방법</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2025 골프 비거리 향상 가이드 | 모든 권리 보유</p>
+    </footer>
+
+    <!-- 실제 구현 시 아래 스크립트를 추가하여 YouTube 영상 임베드 -->
     <script>
-        // Load company data
-        let companies = [];
-        
-        fetch('companies_data.json')
-            .then(response => response.json())
-            .then(data => {
-                companies = data;
-                updateDashboard();
-            })
-            .catch(error => console.error('Error loading company data:', error));
-        
-        function updateDashboard() {
-            updateSummaryStats();
-            populateCompanyCards();
-            populateCompanyTable();
-            createFundingStageChart();
-            createTechnologyFocusChart();
-            initMap();
-        }
-        
-        function updateSummaryStats() {
-            // Count companies by funding stage
-            const fundingStages = companies.reduce((acc, company) => {
-                const stage = company.funding_stage || 'Unknown';
-                acc[stage] = (acc[stage] || 0) + 1;
-                return acc;
-            }, {});
+        // 페이지 로드 후 영상 컨테이너에 YouTube 영상 임베드
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainers = document.querySelectorAll('.video-container');
             
-            document.getElementById('totalCompanies').textContent = companies.length;
-            document.getElementById('seedStage').textContent = fundingStages['Seed'] || 0;
-            document.getElementById('seriesA').textContent = fundingStages['Series A'] || 0;
+            // 첫 번째 비디오 컨테이너에 백스윙 연습 영상 임베드
+            if(videoContainers[0]) {
+                videoContainers[0].innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/zXJ0jG-FYeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
             
-            // Calculate average employee count
-            const employeeCounts = companies.map(company => {
-                const empStr = company.employee_count || '';
-                const match = empStr.match(/(\d+)-(\d+)|(\d+)/);
-                if (match) {
-                    if (match[3]) return parseInt(match[3]);
-                    return Math.floor((parseInt(match[1]) + parseInt(match[2])) / 2);
-                }
-                return 0;
-            }).filter(count => count > 0);
-            
-            const avgEmployees = employeeCounts.length > 0 
-                ? Math.round(employeeCounts.reduce((sum, count) => sum + count, 0) / employeeCounts.length) 
-                : 0;
-            
-            document.getElementById('avgEmployees').textContent = avgEmployees;
-        }
-        
-        function populateCompanyCards() {
-            const container = document.getElementById('companyCards');
-            container.innerHTML = '';
-            
-            companies.forEach(company => {
-                const card = document.createElement('div');
-                card.className = 'col-xl-3 col-md-6 mb-4';
-                
-                const initial = company.company_name.charAt(0);
-                const city = company.address.city || 'Unknown';
-                const state = company.address.state || '';
-                const location = state ? `${city}, ${state}` : city;
-                
-                card.innerHTML = `
-                    <div class="card company-card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-center">
-                                <div class="company-logo">${initial}</div>
-                            </div>
-                            <h5 class="card-title text-center mb-3">${company.company_name}</h5>
-                            <div class="mb-2">
-                                <span class="badge badge-funding">${company.funding_stage || 'Unknown'}</span>
-                                <span class="badge badge-location">${location}</span>
-                            </div>
-                            <p class="card-text small">${truncateText(company.business_introduction, 100)}</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <small class="text-muted">Founded: ${company.year_founded || 'Unknown'}</small>
-                                <a href="${company.contact_information.website || '#'}" class="btn btn-sm btn-outline-primary" target="_blank">Visit</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
-        }
-        
-        function populateCompanyTable() {
-            const tableBody = document.querySelector('#companyTable tbody');
-            tableBody.innerHTML = '';
-            
-            companies.forEach(company => {
-                const row = document.createElement('tr');
-                
-                const city = company.address.city || 'Unknown';
-                const state = company.address.state || '';
-                const location = state ? `${city}, ${state}` : city;
-                
-                row.innerHTML = `
-                    <td>${company.company_name}</td>
-                    <td>${location}</td>
-                    <td>${company.funding_stage || 'Unknown'}</td>
-                    <td>${company.year_founded || 'Unknown'}</td>
-                    <td>${company.employee_count || 'Unknown'}</td>
-                    <td>${company.industry || 'AI Technology'}</td>
-                    <td>
-                        <a href="mailto:${company.contact_information.email}" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-envelope"></i>
-                        </a>
-                        <a href="${company.contact_information.website || '#'}" class="btn btn-sm btn-outline-secondary" target="_blank">
-                            <i class="bi bi-globe"></i>
-                        </a>
-                    </td>
-                `;
-                
-                tableBody.appendChild(row);
-            });
-        }
-        
-        function createFundingStageChart() {
-            const fundingStages = companies.reduce((acc, company) => {
-                const stage = company.funding_stage || 'Unknown';
-                acc[stage] = (acc[stage] || 0) + 1;
-                return acc;
-            }, {});
-            
-            const ctx = document.getElementById('fundingStageChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(fundingStages),
-                    datasets: [{
-                        label: 'Number of Companies',
-                        data: Object.values(fundingStages),
-                        backgroundColor: [
-                            'rgba(78, 115, 223, 0.8)',
-                            'rgba(28, 200, 138, 0.8)',
-                            'rgba(54, 185, 204, 0.8)',
-                            'rgba(246, 194, 62, 0.8)',
-                            'rgba(231, 74, 59, 0.8)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        
-        function createTechnologyFocusChart() {
-            // Extract and count AI technology focus areas
-            const focusAreas = {};
-            companies.forEach(company => {
-                const focus = company.ai_technology_focus || '';
-                const areas = focus.split(',').map(area => area.trim());
-                
-                areas.forEach(area => {
-                    if (area) {
-                        focusAreas[area] = (focusAreas[area] || 0) + 1;
-                    }
-                });
-            });
-            
-            // Sort and take top 5
-            const sortedAreas = Object.entries(focusAreas)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 5);
-            
-            const ctx = document.getElementById('technologyFocusChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: sortedAreas.map(item => item[0]),
-                    datasets: [{
-                        data: sortedAreas.map(item => item[1]),
-                        backgroundColor: [
-                            'rgba(78, 115, 223, 0.8)',
-                            'rgba(28, 200, 138, 0.8)',
-                            'rgba(54, 185, 204, 0.8)',
-                            'rgba(246, 194, 62, 0.8)',
-                            'rgba(231, 74, 59, 0.8)'
-                        ],
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                        }
-                    }
-                }
-            });
-        }
-        
-        function initMap() {
-            // This is a placeholder for the map initialization
-            // In a real implementation, you would use the Google Maps API
-            // to create markers for each company location
-            console.log('Map would be initialized here with company locations');
-        }
-        
-        function sortTable(columnIndex) {
-            const table = document.getElementById('companyTable');
-            const tbody = table.querySelector('tbody');
-            const rows = Array.from(tbody.querySelectorAll('tr'));
-            
-            // Determine sort direction
-            const currentSortDir = tbody.getAttribute('data-sort-dir') || 'asc';
-            const newSortDir = currentSortDir === 'asc' ? 'desc' : 'asc';
-            tbody.setAttribute('data-sort-dir', newSortDir);
-            
-            // Sort rows
-            rows.sort((a, b) => {
-                const aValue = a.cells[columnIndex].textContent.trim();
-                const bValue = b.cells[columnIndex].textContent.trim();
-                
-                if (newSortDir === 'asc') {
-                    return aValue.localeCompare(bValue);
-                } else {
-                    return bValue.localeCompare(aValue);
-                }
-            });
-            
-            // Reorder rows
-            rows.forEach(row => tbody.appendChild(row));
-        }
-        
-        document.getElementById('companySearch').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('#companyCards .col-xl-3');
-            
-            cards.forEach(card => {
-                const companyName = card.querySelector('.card-title').textContent.toLowerCase();
-                const description = card.querySelector('.card-text').textContent.toLowerCase();
-                
-                if (companyName.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            // 두 번째 비디오 컨테이너에 실전 훈련 영상 임베드
+            if(videoContainers[1]) {
+                videoContainers[1].innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/72kpWGdHRJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
         });
-        
-        function truncateText(text, maxLength) {
-            if (!text) return '';
-            return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
-        }
     </script>
 </body>
 </html>
