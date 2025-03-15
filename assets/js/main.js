@@ -52,7 +52,7 @@ const blogPosts = [
         title: '첫 번째 블로그 게시물',
         date: '2025년 3월 13일',
         excerpt: '이것은 첫 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/placeholder-1.jpg',
+        image: 'assets/images/blog-1.jpg',
         url: 'posts/post1.html',
         featured: true,
         tag: '특별 게시물'
@@ -62,7 +62,7 @@ const blogPosts = [
         title: '두 번째 블로그 게시물',
         date: '2025년 3월 12일',
         excerpt: '이것은 두 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/placeholder-2.jpg',
+        image: 'assets/images/blog-2.jpg',
         url: 'posts/post2.html'
     },
     {
@@ -70,7 +70,7 @@ const blogPosts = [
         title: '세 번째 블로그 게시물',
         date: '2025년 3월 11일',
         excerpt: '이것은 세 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/placeholder-3.jpg',
+        image: 'assets/images/blog-3.jpg',
         url: 'posts/post3.html'
     }
 ];
