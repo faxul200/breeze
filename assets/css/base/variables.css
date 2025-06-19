@@ -1,0 +1,31 @@
+/* CSS 변수 */
+:root {
+  --primary-color: #1abc9c;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #fff;
+  --background-alt: #f8f9fa;
+  --border-color: #e9ecef;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  
+  /* 다크 모드 변수 */
+  --dark-background: #121212;
+  --dark-background-alt: #1e1e1e;
+  --dark-text: #e0e0e0;
+  --dark-text-light: #aaa;
+  --dark-border: #333;
+  --dark-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 다크 모드 */
+.dark-mode {
+  --text-color: var(--dark-text);
+  --text-light: var(--dark-text-light);
+  --background-color: var(--dark-background);
+  --background-alt: var(--dark-background-alt);
+  --border-color: var(--dark-border);
+  --shadow: var(--dark-shadow);
+}

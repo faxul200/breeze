@@ -97,18 +97,19 @@ function loadBlogPosts() {
     // 특별 게시물이 있으면 표시
     if (featuredPost) {
         featuredPostContainer.innerHTML = `
-            <div class="featured-post">
-                <div class="featured-image">
-                    <img src="${featuredPost.image}" alt="${featuredPost.title}">
+            <a href="${featuredPost.url}" class="featured-post-link">
+                <div class="featured-post">
+                    <div class="featured-image">
+                        <img src="${featuredPost.image}" alt="${featuredPost.title}">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">${featuredPost.tag || '특별 게시물'}</span>
+                        <h2 class="featured-title">${featuredPost.title}</h2>
+                        <p class="featured-excerpt">${featuredPost.excerpt}</p>
+                        <p class="post-date">${featuredPost.date}</p>
+                    </div>
                 </div>
-                <div class="featured-content">
-                    <span class="featured-tag">${featuredPost.tag || '특별 게시물'}</span>
-                    <h2 class="featured-title">${featuredPost.title}</h2>
-                    <p class="featured-excerpt">${featuredPost.excerpt}</p>
-                    <p class="post-date">${featuredPost.date}</p>
-                    <a href="${featuredPost.url}" class="read-more">더 읽기</a>
-                </div>
-            </div>
+            </a>
         `;
     }
     
@@ -119,15 +120,16 @@ function loadBlogPosts() {
         const postElement = document.createElement('div');
         postElement.className = 'post-card';
         postElement.innerHTML = `
-            <div class="post-image">
-                <img src="${post.image}" alt="${post.title}">
-            </div>
-            <div class="post-content">
-                <p class="post-date">${post.date}</p>
-                <h3 class="post-title">${post.title}</h3>
-                <p class="post-excerpt">${post.excerpt}</p>
-                <a href="${post.url}" class="read-more">더 읽기</a>
-            </div>
+            <a href="${post.url}" class="post-card-link">
+                <div class="post-image">
+                    <img src="${post.image}" alt="${post.title}">
+                </div>
+                <div class="post-content">
+                    <p class="post-date">${post.date}</p>
+                    <h3 class="post-title">${post.title}</h3>
+                    <p class="post-excerpt">${post.excerpt}</p>
+                </div>
+            </a>
         `;
         postsGrid.appendChild(postElement);
     });
