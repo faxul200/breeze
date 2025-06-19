@@ -48,13 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // 블로그 게시물 데이터 (실제로는 서버에서 가져오거나 JSON 파일로 관리)
 const blogPosts = [
     {
+        id: 4,
+        title: '2025년 골프 신상품 리뷰',
+        date: '2025년 6월 17일',
+        excerpt: '2025년 출시된 골프 장비 신제품들을 살펴보며, 드라이버, 아이언, 퍼터, 골프화, 클럽 가방 등 각 부문의 주요 특징을 리뷰합니다.',
+        image: 'assets/images/blog-4.jpg',
+        url: 'posts/post4.html',
+        featured: true,
+        tag: '신상품 리뷰'
+    },
+    {
         id: 1,
         title: '첫 번째 블로그 게시물',
         date: '2025년 3월 13일',
         excerpt: '이것은 첫 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
         image: 'assets/images/blog-1.jpg',
         url: 'posts/post1.html',
-        featured: true,
         tag: '특별 게시물'
     },
     {
