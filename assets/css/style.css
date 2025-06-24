@@ -555,7 +555,7 @@ img {
   }
   .post-image {
     aspect-ratio: 4/3;
-    max-height: 28vw;
+    max-height: none;
     min-height: 90px;
     margin-bottom: 0.4rem;
     border-radius: 8px;
