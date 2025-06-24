@@ -53,7 +53,7 @@ const blogPosts = [
         date: '2025년 6월 17일',
         excerpt: '2025년 출시된 골프 장비 신제품들을 살펴보며, 드라이버, 아이언, 퍼터, 골프화, 클럽 가방 등 각 부문의 주요 특징을 리뷰합니다.',
         image: 'assets/images/blog-4.jpg',
-        url: 'posts/post4.html',
+        url: 'posts/post.html?id=4',
         featured: true,
         tag: '신상품 리뷰'
     },
@@ -63,7 +63,7 @@ const blogPosts = [
         date: '2025년 3월 13일',
         excerpt: '이것은 첫 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
         image: 'assets/images/blog-1.jpg',
-        url: 'posts/post1.html',
+        url: 'posts/post.html?id=1',
         tag: '특별 게시물'
     },
     {
@@ -72,7 +72,7 @@ const blogPosts = [
         date: '2025년 3월 12일',
         excerpt: '이것은 두 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
         image: 'assets/images/blog-2.jpg',
-        url: 'posts/post2.html'
+        url: 'posts/post.html?id=2',
     },
     {
         id: 3,
@@ -80,7 +80,7 @@ const blogPosts = [
         date: '2025년 3월 11일',
         excerpt: '이것은 세 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
         image: 'assets/images/blog-3.jpg',
-        url: 'posts/post3.html'
+        url: 'posts/post.html?id=3',
     }
 ];
 
