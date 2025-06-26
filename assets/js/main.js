@@ -42,92 +42,91 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 동적 게시물 로딩 함수
-    loadBlogPosts();
+    fetchAndRenderBlogPosts();
 });
 
-// 블로그 게시물 데이터 (실제로는 서버에서 가져오거나 JSON 파일로 관리)
-const blogPosts = [
-    {
-        id: 4,
-        title: '2025년 골프 신상품 리뷰',
-        date: '2025년 6월 17일',
-        excerpt: '2025년 출시된 골프 장비 신제품들을 살펴보며, 드라이버, 아이언, 퍼터, 골프화, 클럽 가방 등 각 부문의 주요 특징을 리뷰합니다.',
-        image: 'assets/images/blog-4.jpg',
-        url: 'posts/post.html?id=4',
-        featured: true,
-        tag: '신상품 리뷰'
-    },
-    {
-        id: 1,
-        title: '첫 번째 블로그 게시물',
-        date: '2025년 3월 13일',
-        excerpt: '이것은 첫 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/blog-1.jpg',
-        url: 'posts/post.html?id=1',
-        tag: '특별 게시물'
-    },
-    {
-        id: 2,
-        title: '두 번째 블로그 게시물',
-        date: '2025년 3월 12일',
-        excerpt: '이것은 두 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/blog-2.jpg',
-        url: 'posts/post.html?id=2',
-    },
-    {
-        id: 3,
-        title: '세 번째 블로그 게시물',
-        date: '2025년 3월 11일',
-        excerpt: '이것은 세 번째 블로그 게시물의 요약입니다. 여기에는 게시물의 간략한 내용이 들어갑니다.',
-        image: 'assets/images/blog-3.jpg',
-        url: 'posts/post.html?id=3',
-    }
-];
+// Supabase 연동
+const supabaseUrl = 'https://daeqwvmuhupwdgtltwad.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhZXF3dm11aHVwd2RndGx0d2FkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2ODA1MTksImV4cCI6MjA2NjI1NjUxOX0.6rBbmiFZqIBhhyRcXnk7y2wiKPZQPLeCjNYBMV72Y34';
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// 블로그 게시물 로딩 함수
-function loadBlogPosts() {
+// 블로그 게시물 동적 로딩
+async function fetchAndRenderBlogPosts() {
     const postsGrid = document.querySelector('.posts-grid');
     const featuredPostContainer = document.querySelector('.featured-post-container');
     
     if (!postsGrid || !featuredPostContainer) return;
     
-    // 특별 게시물 찾기
-    const featuredPost = blogPosts.find(post => post.featured);
-    
-    // 특별 게시물이 있으면 표시
+        // 데이터 가져오기
+    const { data: blogPosts, error } = await supabase
+        .from('tb_blog_posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+    if (error) {
+        postsGrid.innerHTML = '<p>블로그 글을 불러오는 중 오류가 발생했습니다.</p>';
+        return;
+    }
+    // featured-post: featured=true인 글이 있으면 그 글, 없으면 최신글
+    let featuredPost = blogPosts.find(post => post.featured);
+    if (!featuredPost && blogPosts.length > 0) {
+        featuredPost = blogPosts[0];
+    }
     if (featuredPost) {
-        featuredPostContainer.innerHTML = `
-            <a href="${featuredPost.url}" class="featured-post-link">
-                <div class="featured-post">
-                    <div class="featured-image">
-                        <img src="${featuredPost.image}" alt="${featuredPost.title}">
-                    </div>
-                    <div class="featured-content">
-                        <span class="featured-tag">${featuredPost.tag || '특별 게시물'}</span>
-                        <h2 class="featured-title">${featuredPost.title}</h2>
-                        <p class="featured-excerpt">${featuredPost.excerpt}</p>
-                        <p class="post-date">${featuredPost.date}</p>
-                    </div>
+        // 모바일에서 최신글도 일반 블로그카드와 동일하게 렌더링, 특별 게시물 태그는 모바일에서 제외
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        if (isMobile) {
+            featuredPostContainer.innerHTML = `
+                <div class="post-card">
+                    <a href="posts/post.html?id=${featuredPost.id}" class="post-card-link">
+                        <div class="post-image">
+                            <img src="${featuredPost.image_url || 'assets/images/default.jpg'}" alt="${featuredPost.title}">
+                        </div>
+                        <div class="post-content">
+                            <p class="post-date">${new Date(featuredPost.created_at).toLocaleDateString('ko-KR')}</p>
+                            <h3 class="post-title">${featuredPost.title}</h3>
+                            <p class="post-excerpt">${featuredPost.excerpt || ''}</p>
+                            ${featuredPost.summary ? `<div class="post-summary">${featuredPost.summary}</div>` : ''}
+                        </div>
+                    </a>
                 </div>
-            </a>
-        `;
+            `;
+        } else {
+            featuredPostContainer.innerHTML = `
+                <a href="posts/post.html?id=${featuredPost.id}" class="featured-post-link">
+                    <div class="featured-post">
+                        <div class="post-image">
+                            <img src="${featuredPost.image_url || 'assets/images/default.jpg'}" alt="${featuredPost.title}">
+                        </div>
+                        <div class="post-content">
+                            <span class="featured-tag">최신 게시물</span>
+                            <h2 class="post-title">${featuredPost.title}</h2>
+                            <p class="post-excerpt">${featuredPost.excerpt || ''}</p>
+                            ${featuredPost.summary ? `<div class="post-summary">${featuredPost.summary}</div>` : ''}
+                            <p class="post-date">${new Date(featuredPost.created_at).toLocaleDateString('ko-KR')}</p>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+    } else {
+        featuredPostContainer.innerHTML = '';
     }
     
-    // 일반 게시물 표시 (특별 게시물 제외)
-    const regularPosts = blogPosts.filter(post => !post.featured);
-    
-    regularPosts.forEach(post => {
+    // posts-grid: featured-post로 쓴 글을 제외한 나머지만 표시
+    postsGrid.innerHTML = '';
+    blogPosts.filter(post => post.id !== (featuredPost && featuredPost.id)).forEach(post => {
         const postElement = document.createElement('div');
         postElement.className = 'post-card';
         postElement.innerHTML = `
-            <a href="${post.url}" class="post-card-link">
+            <a href="posts/post.html?id=${post.id}" class="post-card-link">
                 <div class="post-image">
-                    <img src="${post.image}" alt="${post.title}">
+                    <img src="${post.image_url || 'assets/images/default.jpg'}" alt="${post.title}">
                 </div>
                 <div class="post-content">
-                    <p class="post-date">${post.date}</p>
+                    <p class="post-date">${new Date(post.created_at).toLocaleDateString('ko-KR')}</p>
                     <h3 class="post-title">${post.title}</h3>
-                    <p class="post-excerpt">${post.excerpt}</p>
+                    <p class="post-excerpt">${post.excerpt || ''}</p>
+${post.summary ? `<div class="post-summary">${post.summary}</div>` : ''}
                 </div>
             </a>
         `;
@@ -135,17 +134,3 @@ function loadBlogPosts() {
     });
 }
 
-// 새 게시물 추가 함수
-function addNewPost(post) {
-    blogPosts.unshift(post); // 배열 맨 앞에 추가
-    
-    // 로컬 스토리지에 저장 (실제로는 서버에 저장)
-    localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
-    
-    // 화면 갱신
-    const postsGrid = document.querySelector('.posts-grid');
-    if (postsGrid) {
-        postsGrid.innerHTML = ''; // 기존 게시물 지우기
-        loadBlogPosts(); // 게시물 다시 로드
-    }
-}

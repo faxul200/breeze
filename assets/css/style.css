@@ -178,9 +178,11 @@ img {
   align-items: stretch;
 }
 
+/* featured-post는 항상 단독 가로(row)형, posts-grid는 그 아래 2번째 글부터 카드로 */
+
 .post-card {
   background: none;
-  border-radius: 16px;
+  border-radius: 8px !important;
   padding: 0;
   margin: 0;
   box-shadow: none;
@@ -192,7 +194,7 @@ img {
 .post-card-link {
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 8px !important;
   background: var(--background-color);
   box-shadow: 0 2px 8px rgba(60,60,90,0.06);
   border: 1.5px solid transparent;
@@ -216,6 +218,7 @@ img {
   background: #f4f7fa;
 }
 
+
 .post-card-link .post-title {
   transition: color 0.2s;
 }
@@ -231,9 +234,19 @@ img {
   transition: box-shadow 0.25s cubic-bezier(0.4,0.2,0.2,1), transform 0.25s cubic-bezier(0.4,0.2,0.2,1);
 }
 
+.featured-post-link, .featured-post, .post-card, .post-image, .post-image img {
+  border-radius: 12px !important;
+}
+
+@media (max-width: 900px) {
+  .featured-post-link, .featured-post, .post-card, .post-image, .post-image img {
+    border-radius: 12px !important;
+  }
+}
+
 .featured-post-link {
   display: block;
-  border-radius: 22px;
+  border-radius: 8px !important;
   text-decoration: none;
   color: inherit;
   transition: box-shadow 0.22s cubic-bezier(0.4,0.2,0.2,1), border 0.22s, background 0.22s;
@@ -271,7 +284,7 @@ img {
 
 .featured-post {
   background: linear-gradient(90deg, #f8fafc 60%, #eaf0fa 100%);
-  border-radius: 22px;
+  border-radius: 8px !important;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   align-items: stretch;
@@ -280,7 +293,167 @@ img {
   gap: 2rem;
   margin-bottom: 2.5rem;
   transition: box-shadow 0.2s, transform 0.2s;
+  width: 100%;
+  max-width: 100%;
 }
+
+.featured-post .post-image {
+  flex: 1 1 0;
+  width: 50%;
+  min-width: 0;
+  max-width: 100%;
+  aspect-ratio: 4/3;
+  background: #f4f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-height: 340px;
+  border-radius: 16px 0 0 16px;
+}
+
+.featured-post .post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 8px !important;
+}
+
+.featured-post .post-content {
+  flex: 1 1 0;
+  width: 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+
+.featured-post .featured-tag {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featured-post .post-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+.featured-post .post-excerpt {
+  font-size: 1.14rem;
+  color: var(--text-light);
+  margin-bottom: 0.2rem;
+  line-height: 1.65;
+  font-weight: 400;
+  max-width: 90vw;
+  word-break: keep-all;
+}
+
+
+.featured-post .post-date {
+  font-size: 1.07rem;
+  color: var(--text-light);
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  .featured-post {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(60,60,90,0.06);
+    background: var(--background-color);
+    padding: 0;
+    margin: 0 0 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 340px;
+    display: flex;
+    align-items: stretch;
+  }
+  .featured-post .post-image {
+    flex: 1 1 0;
+    min-height: 50%;
+  }
+  .post-card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(60,60,90,0.06);
+    background: var(--background-color);
+    padding: 0;
+    margin: 0 0 2rem 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .featured-post .post-image,
+  .post-card .post-image {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    aspect-ratio: 4/3;
+    border-radius: 8px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+  }
+  .featured-post .post-image img,
+  .post-card .post-image img {
+    border-radius: 8px !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px !important;
+    background: #f4f6fa;
+    margin: 0;
+    padding: 0;
+    max-height: unset;
+    position: relative;
+    top: -1px;
+  }
+  .featured-post .post-content {
+    width: 100%;
+    padding: 0.7rem 0.8rem 0.9rem 0.8rem;
+    border-radius: 0 0 16px 16px;
+    gap: 0.3rem;
+    margin: 0;
+    min-width: 0;
+    flex: unset;
+  }
+  .featured-post .post-image {
+    flex: 1 1 0;
+  }
+  .featured-post .post-title {
+    font-size: 1.13rem;
+    margin: 0.4rem 0 0.3rem 0;
+  }
+  .featured-post .post-excerpt {
+    font-size: 0.97rem;
+  }
+  .featured-post .post-date {
+    font-size: 0.93rem;
+  }
+}
+
 
 
 
@@ -298,7 +471,8 @@ img {
 .post-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  aspect-ratio: 4/3;
+  object-fit: cover;
   object-position: center center;
   transition: transform 0.3s;
   background: #f4f6fa;
@@ -368,7 +542,7 @@ img {
   gap: 2rem;
   margin-bottom: 2.5rem;
   background: linear-gradient(90deg, #f8fafc 60%, #eaf0fa 100%);
-  border-radius: 22px;
+  border-radius: 8px !important;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   align-items: stretch;
@@ -541,7 +715,7 @@ img {
   .featured-post {
     flex-direction: column;
     gap: 1.2rem;
-    border-radius: 16px;
+    border-radius: 8px !important;
   }
   .featured-content {
     padding: 1.2rem 1.2rem;
