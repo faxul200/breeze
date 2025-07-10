@@ -43,6 +43,7 @@
                         <span class="post-author" id="post-author"></span>
                     </div>
                 </header>
+                <img id="post-image" style="display:none;max-width:100%;height:auto;" />
                 <div class="post-content" id="post-content"></div>
                 <div class="post-tags" id="post-tags"></div>
             </article>
@@ -119,13 +120,19 @@
         document.getElementById('post-date').textContent = new Date(data.created_at).toLocaleDateString('ko-KR');
         document.getElementById('post-author').textContent = data.author || '작성자 미지정';
         document.getElementById('post-content').innerHTML = data.content;
+
         if(data.image_url) {
           const img = document.getElementById('post-image');
           img.src = data.image_url;
-          img.style.display = '';
+          img.style.display = 'none'; // 항상 숨김 처리
         }
-        if(data.tags) {
-          document.getElementById('post-tags').innerHTML = data.tags.split(',').map(tag => `<span class='post-tag'>${tag.trim()}</span>`).join(' ');
+        const tagsDiv = document.getElementById('post-tags');
+        if (data.tags) {
+          tagsDiv.innerHTML = data.tags.split(',').map(tag => `<span class='post-tag'>${tag.trim()}</span>`).join(' ');
+          tagsDiv.style.display = '';
+        } else {
+          tagsDiv.innerHTML = '';
+          tagsDiv.style.display = 'none';
         }
       }
       document.addEventListener('DOMContentLoaded', () => {
@@ -133,6 +140,6 @@
         fetchPost(postId);
       });
     </script>
-    <script src="../assets/js/main.js"></script>
+
 </body>
 </html>
