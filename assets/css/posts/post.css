@@ -61,6 +61,34 @@ img {
 /* 모바일 환경 스타일 */
 @media (max-width: 600px) {
   .post-image {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    height: auto !important;
+    aspect-ratio: unset !important;
+    background: none !important;
+    display: block !important;
+  }
+  .post-image img,
+  .post-content img,
+  img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+    background: none !important;
+    border-radius: 7px !important;
+  }
+}
+
+  .post-image {
     margin: 0.3rem auto 0.3rem auto;
     padding: 0;
     max-width: 98vw;
