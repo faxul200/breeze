@@ -61,6 +61,7 @@ async function fetchAndRenderBlogPosts() {
     const { data: blogPosts, error } = await supabase
         .from('tb_blog_posts')
         .select('*')
+        .eq('display_yn', 'Y')
         .order('created_at', { ascending: false });
     if (error) {
         postsGrid.innerHTML = '<p>블로그 글을 불러오는 중 오류가 발생했습니다.</p>';
