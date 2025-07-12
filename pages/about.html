@@ -11,17 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="../index.html" class="logo">블로그<span>.</span></a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="../index.html" class="nav-link">홈</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">카테고리</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link active">소개</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">연락처</a></li>
-            </ul>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
     <main class="main">
     <div class="post-container">
         <div class="post-header" style="padding-left:0.5em;">
@@ -70,37 +60,7 @@
         </div>
     </div>
 </main>
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>블로그 소개</h3>
-                    <p>다양한 주제의 흥미로운 콘텐츠를 제공하는 블로그입니다. 새로운 게시물이 정기적으로 업데이트됩니다.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>카테고리</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">기술</a></li>
-                        <li class="footer-link"><a href="#">라이프스타일</a></li>
-                        <li class="footer-link"><a href="#">여행</a></li>
-                        <li class="footer-link"><a href="#">음식</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>빠른 링크</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="about.html">소개</a></li>
-                        <li class="footer-link"><a href="#">연락처</a></li>
-                        <li class="footer-link"><a href="#">개인정보처리방침</a></li>
-                        <li class="footer-link"><a href="#">이용약관</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 블로그. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script src="../assets/js/main.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -136,5 +96,7 @@
         }
     });
     </script>
+    <script src="../assets/js/inject-header.js"></script>
+    <script src="../assets/js/inject-footer.js"></script>
 </body>
 </html>

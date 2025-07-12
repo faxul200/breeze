@@ -12,26 +12,7 @@
 </head>
 <body>
     <!-- 헤더 섹션 -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">블로그<span>.</span></a>
-            <button id="mobile-menu-btn" class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">홈</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">카테고리</a></li>
-                <li class="nav-item"><a href="pages/about.html" class="nav-link">소개</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">연락처</a></li>
-                <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">
-                        <i id="moon-icon" class="fas fa-moon"></i>
-                        <i id="sun-icon" class="fas fa-sun" style="display: none;"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
     <!-- 메인 콘텐츠 -->
     <main class="main">
         <div class="container">
@@ -47,46 +28,12 @@
         </div>
     </main>
     <!-- 푸터 섹션 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>블로그 소개</h3>
-                    <p>다양한 주제의 흥미로운 콘텐츠를 제공하는 블로그입니다. 새로운 게시물이 정기적으로 업데이트됩니다.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>카테고리</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">기술</a></li>
-                        <li class="footer-link"><a href="#">라이프스타일</a></li>
-                        <li class="footer-link"><a href="#">여행</a></li>
-                        <li class="footer-link"><a href="#">음식</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>빠른 링크</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="pages/about.html">소개</a></li>
-                        <li class="footer-link"><a href="#">연락처</a></li>
-                        <li class="footer-link"><a href="#">개인정보처리방침</a></li>
-                        <li class="footer-link"><a href="#">이용약관</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 블로그. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <!-- 자바스크립트 -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/inject-header.js"></script>
+    <script src="assets/js/inject-footer.js"></script>
 </body>
 </html>

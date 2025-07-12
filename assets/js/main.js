@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 동적 게시물 로딩 함수
-    fetchAndRenderBlogPosts();
+    // fetchAndRenderBlogPosts();
 });
 
 // Supabase 연동
