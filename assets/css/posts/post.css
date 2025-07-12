@@ -33,6 +33,15 @@
   margin-bottom: 1.5rem;
 }
 
+.post-content ul, .post-body ul {
+  padding-left: 1.5em !important;
+  margin-left: 0 !important;
+}
+
+.post-content li, .post-body li {
+  padding-left: 0 !important;
+}
+
 .post-content h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;

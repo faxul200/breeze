@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소개 | 블로그</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">블로그<span>.</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">홈</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">카테고리</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">소개</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">연락처</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+    <div class="post-container">
+        <div class="post-header" style="padding-left:0.5em;">
+            <h1 class="post-title" style="padding-left:0;margin-left:0;font-size:1.5em;font-weight:700;">블로그 소개</h1>
+        </div>
+        <div class="post-content" style="padding-left:0.5em;">
+            <p style="padding-left:0;">안녕하세요! 저는 골프공에 진심인 골프 애호가입니다.<br>
+            이 블로그는 다양한 브랜드의 골프공을 직접 사용해보고,<br>
+            그 느낌과 성능을 솔직하게 정리한 리뷰 전문 블로그입니다.</p>
+            <h2>👨‍🏫 리뷰 기준</h2>
+            <ul style="padding-left:1.5em;margin-left:0;">
+                <li>실제 필드 또는 연습장에서 직접 사용 후 작성</li>
+                <li>타구감, 비거리, 정렬선, 디자인 등을 기준으로 분석</li>
+                <li>가능한 실제 사진과 데이터를 첨부합니다</li>
+            </ul>
+            <h2>💬 블로그 목적</h2>
+            <ul style="padding-left:1.5em;margin-left:0;">
+                <li>골프공 선택에 어려움을 겪는 분들을 위해</li>
+                <li>초보자부터 중상급자까지 쉽게 이해할 수 있도록</li>
+                <li>골프공 외에도 관련 장비, 팁도 함께 다룰 예정입니다</li>
+            </ul>
+            <div class="contact-section" style="margin-top:2.5rem;">
+                <h2>관리자에게 메일보내기</h2>
+                <form id="contact-form" style="max-width:500px;">
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="contact-subject">제목입력</label>
+                        <input type="text" id="contact-subject" class="form-control" placeholder="제목을 입력하세요" required style="width:100%;padding:8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="contact-email">관리자이메일</label>
+                        <input type="email" id="contact-email" class="form-control" value="faxul200@gmail.com" readonly style="width:100%;padding:8px;background:#f5f5f5;">
+                    </div>
+                    <div class="form-group" style="margin-bottom:1rem;">
+                        <label for="contact-message">메일내용입력</label>
+                        <textarea id="contact-message" class="form-control" rows="6" placeholder="메세지를 입력하세요" required style="width:100%;padding:8px;"></textarea>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;line-height:0;background:none;border:none;">
+  <button type="submit" id="send-email-btn" class="btn btn-primary" style="padding:8px 24px;">Send Email</button>
+  <span id="contact-processing" style="display:flex;align-items:center;width:24px;height:24px;overflow:hidden;vertical-align:middle;line-height:0;background:none;border:none;padding:0;margin:0;">
+  <img id="contact-loading-img" src="" style="width:24px;height:24px;object-fit:contain;display:block;visibility:hidden;" alt="loading" />
+</span>
+</div>
+                </form>
+                <div id="contact-result" style="margin-top:1rem;"></div>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>블로그 소개</h3>
+                    <p>다양한 주제의 흥미로운 콘텐츠를 제공하는 블로그입니다. 새로운 게시물이 정기적으로 업데이트됩니다.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>카테고리</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">기술</a></li>
+                        <li class="footer-link"><a href="#">라이프스타일</a></li>
+                        <li class="footer-link"><a href="#">여행</a></li>
+                        <li class="footer-link"><a href="#">음식</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>빠른 링크</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about.html">소개</a></li>
+                        <li class="footer-link"><a href="#">연락처</a></li>
+                        <li class="footer-link"><a href="#">개인정보처리방침</a></li>
+                        <li class="footer-link"><a href="#">이용약관</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 블로그. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        emailjs.init('fpGrAUrUSR8MEHynw');
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const title = document.getElementById('contact-subject').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    const name = ''; // 이름 필드가 없으므로 빈 문자열로 전송 (필요시 입력란 추가 가능)
+    document.getElementById('contact-loading-img').src = '../assets/images/progress.gif';
+    document.getElementById('contact-loading-img').style.visibility = 'visible';
+    document.getElementById('contact-result').innerHTML = '';
+
+    emailjs.send('service_mu3oyft', 'template_cb157nk', {
+        title: title,
+        name: name,
+        message: message,
+        email: email
+    }).then(function(response) {
+        document.getElementById('contact-result').innerHTML = '<span style="color:green;">메일이 성공적으로 전송되었습니다.</span>';
+        document.getElementById('contact-subject').value = '';
+        document.getElementById('contact-message').value = '';
+    }, function(error) {
+        document.getElementById('contact-result').innerHTML = '<span style="color:red;">메일 전송 중 오류가 발생했습니다.</span>';
+    }).finally(function() {
+        document.getElementById('contact-loading-img').src = '';
+        document.getElementById('contact-loading-img').style.visibility = 'hidden';
+    });
+});
+        }
+    });
+    </script>
+</body>
+</html>
