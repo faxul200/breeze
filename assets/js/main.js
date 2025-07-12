@@ -1,13 +1,13 @@
-// 다크 모드 토글 기능
-document.addEventListener('DOMContentLoaded', function() {
+// 다크 모드 및 헤더 이벤트 바인딩 함수
+window.initHeaderEvents = function() {
     // 다크 모드 토글 버튼
     const themeToggle = document.getElementById('theme-toggle');
     const moonIcon = document.getElementById('moon-icon');
     const sunIcon = document.getElementById('sun-icon');
-    
+    if (!themeToggle || !moonIcon || !sunIcon) return;
+
     // 저장된 테마 확인
     const savedTheme = localStorage.getItem('theme');
-    
     // 저장된 테마가 있으면 적용
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
@@ -17,11 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
         moonIcon.style.display = 'inline';
         sunIcon.style.display = 'none';
     }
-    
-    // 테마 토글 이벤트
-    themeToggle.addEventListener('click', function() {
+
+    // 테마 토글 이벤트 (중복 방지)
+    themeToggle.onclick = function() {
         document.body.classList.toggle('dark-mode');
-        
         if (document.body.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
             moonIcon.style.display = 'none';
@@ -31,16 +30,22 @@ document.addEventListener('DOMContentLoaded', function() {
             moonIcon.style.display = 'inline';
             sunIcon.style.display = 'none';
         }
-    });
-    
+    };
+
     // 모바일 메뉴 토글
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
-    
-    mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-    
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.onclick = function() {
+            navMenu.classList.toggle('active');
+        };
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof window.initHeaderEvents === 'function') {
+        window.initHeaderEvents();
+    }
     // 동적 게시물 로딩 함수
     // fetchAndRenderBlogPosts();
 });

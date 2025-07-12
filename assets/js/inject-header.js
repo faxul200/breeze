@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                .replace(/{{aboutActive}}/g, aboutActive);
 
     placeholder.outerHTML = html;
+
+    // 헤더 삽입 후 이벤트 바인딩 (다크모드, 모바일 메뉴)
+    if (typeof window.initHeaderEvents === 'function') {
+        window.initHeaderEvents();
+    }
+
     // 헤더 삽입 후 블로그 목록 렌더링
     if (typeof fetchAndRenderBlogPosts === 'function') {
         fetchAndRenderBlogPosts();
