@@ -32,59 +32,9 @@
     </main>
     <!-- 푸터 섹션 -->
     <div id="footer-placeholder"></div>
-    <!-- 자바스크립트 -->
+    <!-- 자바스크립트 -->    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script>
-      const supabaseUrl = 'https://daeqwvmuhupwdgtltwad.supabase.co';
-      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhZXF3dm11aHVwd2RndGx0d2FkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2ODA1MTksImV4cCI6MjA2NjI1NjUxOX0.6rBbmiFZqIBhhyRcXnk7y2wiKPZQPLeCjNYBMV72Y34';
-      const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-      function getPostIdFromUrl() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('id');
-      }
-
-      async function fetchPost(postId) {
-        if (!postId) {
-          document.getElementById('post-title').textContent = '잘못된 접근';
-          document.getElementById('post-content').textContent = '게시글 ID가 없습니다.';
-          return;
-        }
-        const { data, error } = await supabase
-          .from('tb_blog_posts')
-          .select('*')
-          .eq('id', postId)
-          .single();
-        if (error) {
-          document.getElementById('post-title').textContent = '오류 발생';
-          document.getElementById('post-content').textContent = error.message;
-          return;
-        }
-        document.getElementById('post-title').textContent = data.title;
-        document.title = data.title;
-        document.getElementById('post-date').textContent = new Date(data.created_at).toLocaleDateString('ko-KR');
-        document.getElementById('post-author').textContent = data.author || '작성자 미지정';
-        document.getElementById('post-content').innerHTML = data.content;
-
-        if(data.image_url) {
-          const img = document.getElementById('post-image');
-          img.src = data.image_url;
-          img.style.display = 'none'; // 항상 숨김 처리
-        }
-        const tagsDiv = document.getElementById('post-tags');
-        if (data.tags) {
-          tagsDiv.innerHTML = data.tags.split(',').map(tag => `<span class='post-tag'>${tag.trim()}</span>`).join(' ');
-          tagsDiv.style.display = '';
-        } else {
-          tagsDiv.innerHTML = '';
-          tagsDiv.style.display = 'none';
-        }
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const postId = getPostIdFromUrl();
-        fetchPost(postId);
-      });
-    </script>
+    <script src="../assets/js/post.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/inject-header.js"></script>
     <script src="../assets/js/inject-footer.js"></script>
