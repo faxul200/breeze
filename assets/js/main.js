@@ -46,14 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof window.initHeaderEvents === 'function') {
         window.initHeaderEvents();
     }
-    // 동적 게시물 로딩 함수
-    // fetchAndRenderBlogPosts();
+    // 블로그 게시물 로딩
+    fetchAndRenderBlogPosts();
 });
 
 // Supabase 연동
 const supabaseUrl = 'https://daeqwvmuhupwdgtltwad.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRhZXF3dm11aHVwd2RndGx0d2FkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2ODA1MTksImV4cCI6MjA2NjI1NjUxOX0.6rBbmiFZqIBhhyRcXnk7y2wiKPZQPLeCjNYBMV72Y34';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+// 카테고리 텍스트 매핑
+const categoryTextMap = {
+    'distance': '비거리',
+    'feel': '타구감',
+    'design': '디자인'
+};
+
+// URL에서 현재 카테고리 가져오기
+function getCurrentCategory() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    return category && ['distance', 'feel', 'design'].includes(category) ? category : null;
+}
 
 // 블로그 게시물 동적 로딩
 async function fetchAndRenderBlogPosts() {
@@ -62,12 +76,29 @@ async function fetchAndRenderBlogPosts() {
     
     if (!postsGrid || !featuredPostContainer) return;
     
-        // 데이터 가져오기
-    const { data: blogPosts, error } = await supabase
+    // 현재 선택된 카테고리
+    const currentCategory = getCurrentCategory();
+    
+    // 카테고리 제목 업데이트
+    const categoryTitle = document.querySelector('.category-title');
+    if (categoryTitle) {
+        categoryTitle.textContent = currentCategory ? categoryTextMap[currentCategory] : '전체';
+    }
+    
+    // 데이터 가져오기
+    let query = supabase
         .from('tb_blog_posts')
         .select('*')
         .eq('display_yn', 'Y')
         .order('created_at', { ascending: false });
+    
+    // 카테고리 필터 적용
+    if (currentCategory) {
+        query = query.eq('category', currentCategory);
+    }
+    
+    const { data: blogPosts, error } = await query;
+    
     if (error) {
         postsGrid.innerHTML = '<p>블로그 글을 불러오는 중 오류가 발생했습니다.</p>';
         return;

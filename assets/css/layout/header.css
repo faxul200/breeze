@@ -50,6 +50,66 @@
   color: var(--primary-color);
 }
 
+/* 카테고리 드롭다운 메뉴 */
+.category-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#categoryMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 1000;
+    margin: 5px 0 0;
+    border: 1px solid #e2e8f0;
+    list-style: none;
+}
+
+#categoryMenu.show {
+    display: block;
+}
+
+#categoryMenu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #4a5568;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f7fafc;
+    color: #2b6cb0;
+}
+
+/* Active state for the toggle button */
+#categoryToggle.active {
+    color: #2b6cb0;
+}
+
+/* Chevron rotation */
+#categoryToggle .fa-chevron-down {
+    transition: transform 0.2s ease;
+    margin-left: 4px;
+    font-size: 0.8em;
+}
+
+#categoryToggle.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
 /* 모바일 메뉴 버튼 */
 .mobile-menu-btn {
   display: none;

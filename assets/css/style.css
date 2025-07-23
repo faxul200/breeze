@@ -4,6 +4,11 @@
 @import 'posts/post.css';
 @import 'utils/utils.css';
 
+/* 푸터 SNS 아이콘 숨기기 */
+.footer .social-links {
+    display: none !important;
+}
+
 /* 전체 스타일 */
 :root {
   --primary-color: #3a6ea5;

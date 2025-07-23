@@ -1,13 +1,21 @@
 <header class="header">
     <div class="container header-container">
-        <a href="{{root}}index.html" class="logo">팍술의 <span style="color:#28a745;">골프공</span> 블로그</a>
+        <a href="/index.html" class="logo">팍술의 <span style="color:#28a745;">골프공</span> 블로그</a>
         <button id="mobile-menu-btn" class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="{{root}}index.html" class="nav-link">홈</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">카테고리</a></li>
-            <li class="nav-item"><a href="{{about}}" class="nav-link{{aboutActive}}">소개</a></li>
+            <li class="nav-item"><a href="/index.html" class="nav-link">홈</a></li>
+            <li class="nav-item category-dropdown">
+                <a href="#" class="nav-link" id="categoryToggle">카테고리 <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu" id="categoryMenu">
+                    <li><a href="#" class="dropdown-item" data-category="all">전체</a></li>
+                    <li><a href="#" class="dropdown-item" data-category="distance">비거리</a></li>
+                    <li><a href="#" class="dropdown-item" data-category="feel">타구감</a></li>
+                    <li><a href="#" class="dropdown-item" data-category="design">디자인</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/pages/about.html" class="nav-link">소개</a></li>
             <li class="nav-item"><a href="#" class="nav-link" style="display: none;">연락처</a></li>
             <li class="nav-item">
                 <button id="theme-toggle" class="theme-toggle" style="display: none;">
