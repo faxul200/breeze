@@ -1,45 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- 메인 페이지 -->
+
     <url>
-        <loc>https://faxul.co.kr
+        <loc>https://faxul.co.kr</loc>
         <lastmod>2025-07-25</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-    
-    <!-- About 페이지 -->
+
     <url>
         <loc>https://faxul.co.kr/pages/about.html</loc>
         <lastmod>2025-07-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
-    <!-- 개인정보 처리방침 -->
+
     <url>
         <loc>https://faxul.co.kr/pages/privacy-policy.html</loc>
         <lastmod>2025-07-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
-    
-    <!-- 이용약관 -->
+
     <url>
         <loc>https://faxul.co.kr/pages/terms-of-service.html</loc>
         <lastmod>2025-07-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
-    
-    <!-- 블로그 포스트 (동적 생성) -->
-    <!-- 아래는 예시입니다. 실제로는 서버 사이드에서 동적으로 생성하는 것이 좋습니다. -->
-    <!--
+
     <url>
-        <loc>https://yourdomain.com/posts/post-slug</loc>
-        <lastmod>2025-07-25</lastmod>
+        <loc>https://faxul.co.kr/posts/post.html?id=30</loc>
+        <lastmod>2025-07-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
-    -->
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=29</loc>
+        <lastmod>2025-07-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=28</loc>
+        <lastmod>2025-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=27</loc>
+        <lastmod>2025-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=26</loc>
+        <lastmod>2025-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=25</loc>
+        <lastmod>2025-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=24</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=23</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=22</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=21</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=20</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=19</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=18</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=17</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=16</loc>
+        <lastmod>2025-07-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=15</loc>
+        <lastmod>2025-07-17</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=14</loc>
+        <lastmod>2025-07-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=13</loc>
+        <lastmod>2025-07-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=12</loc>
+        <lastmod>2025-07-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=11</loc>
+        <lastmod>2025-07-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=10</loc>
+        <lastmod>2025-07-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=9</loc>
+        <lastmod>2025-07-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=8</loc>
+        <lastmod>2025-07-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=7</loc>
+        <lastmod>2025-07-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=6</loc>
+        <lastmod>2025-06-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=5</loc>
+        <lastmod>2025-06-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=4</loc>
+        <lastmod>2025-04-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=3</loc>
+        <lastmod>2025-04-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=2</loc>
+        <lastmod>2025-03-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://faxul.co.kr/posts/post.html?id=1</loc>
+        <lastmod>2025-03-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
 </urlset>

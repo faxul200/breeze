@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@supabase/supabase-js": "^2.52.1",
     "firebase": "^11.4.0",
     "live-server": "^1.2.2"
   },
