@@ -35,7 +35,40 @@ async function fetchPost(postId) {
             
             // 내용 표시
             document.getElementById('post-title').textContent = data.title;
-            document.title = data.title; // 브라우저 탭 제목도 업데이트
+            
+            // SEO 메타데이터 업데이트
+            const metaElements = {
+                title: document.querySelector('title[data-post-title]'),
+                description: document.querySelector('meta[data-post-summary]'),
+                keywords: document.querySelector('meta[data-post-tags]'),
+                ogTitle: document.querySelector('meta[property="og:title"]'),
+                ogDescription: document.querySelector('meta[property="og:description"]'),
+                publishedTime: document.querySelector('meta[data-post-published]')
+            };
+
+            if (data.title) {
+                if (metaElements.title) metaElements.title.textContent = data.title;
+                if (metaElements.ogTitle) metaElements.ogTitle.setAttribute('content', data.title);
+            }
+            
+            if (data.summary) {
+                if (metaElements.description) metaElements.description.setAttribute('content', data.summary);
+                if (metaElements.ogDescription) metaElements.ogDescription.setAttribute('content', data.summary);
+            }
+            
+            if (data.tags) {
+                if (metaElements.keywords) metaElements.keywords.setAttribute('content', data.tags);
+            }
+            
+            if (data.created_at) {
+                const publishedTime = new Date(data.created_at).toISOString();
+                if (metaElements.publishedTime) metaElements.publishedTime.setAttribute('content', publishedTime);
+            }
+            
+            // 타이틀 업데이트
+            document.title = data.title;
+            
+            // 기타 내용 표시
             document.getElementById('post-date').textContent = new Date(data.created_at).toLocaleDateString('ko-KR');
             document.getElementById('post-author').textContent = data.author || '작성자 미지정';
             document.getElementById('post-content').innerHTML = data.content;
