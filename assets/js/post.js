@@ -43,7 +43,8 @@ async function fetchPost(postId) {
                 keywords: document.querySelector('meta[data-post-tags]'),
                 ogTitle: document.querySelector('meta[property="og:title"]'),
                 ogDescription: document.querySelector('meta[property="og:description"]'),
-                publishedTime: document.querySelector('meta[data-post-published]')
+                publishedTime: document.querySelector('meta[data-post-published]'),
+                url: document.querySelector('meta[property="og:url"]')
             };
 
             if (data.title) {
@@ -63,6 +64,15 @@ async function fetchPost(postId) {
             if (data.created_at) {
                 const publishedTime = new Date(data.created_at).toISOString();
                 if (metaElements.publishedTime) metaElements.publishedTime.setAttribute('content', publishedTime);
+            }
+            
+            // URL 업데이트
+            if (metaElements.url) {
+                const currentUrl = metaElements.url.getAttribute('content');
+                const postId = getPostIdFromUrl();
+                if (postId) {
+                    metaElements.url.setAttribute('content', `${currentUrl}${postId}`);
+                }
             }
             
             // 타이틀 업데이트
