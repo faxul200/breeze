@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이용약관 | 팍술의 골프공 블로그</title>
-    <!-- 파비콘 -->
-    <link rel="icon" type="image/png" href="../assets/favicon/faxul_favicon.png">
-    <link rel="shortcut icon" type="image/png" href="../assets/favicon/faxul_favicon.png">
-    <link rel="apple-touch-icon" href="../assets/favicon/faxul_favicon.png">
+    <!-- 파비콘 설정 (자동으로 로드됨) -->
+    <script src="../assets/js/favicon-config.js" defer></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -86,14 +84,23 @@
         </div>
     </main>    
     <div id="footer-placeholder"></div>
+    <script src="../assets/js/category-dropdown.js"></script>
+    <script src="../assets/js/mobile-menu.js"></script>
     <script src="../assets/js/main.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Load header and footer
         fetch('../assets/partials/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
+                // Initialize category dropdown after header is loaded
+                if (typeof initCategoryDropdown === 'function') {
+                    initCategoryDropdown();
+                }
+                // Initialize header events
+                if (typeof window.initHeaderEvents === 'function') {
+                    window.initHeaderEvents();
+                }
             });
         
         fetch('../assets/partials/footer.html')

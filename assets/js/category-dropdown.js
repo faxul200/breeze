@@ -75,10 +75,11 @@ window.addEventListener('load', function() {
                 categoryToggle.classList.remove('active');
                 
                 // Navigate to the selected category
+                const basePath = window.location.pathname.includes('/posts/') ? '../' : '';
                 if (category === 'all') {
-                    window.location.href = '/index.html';
+                    window.location.href = `${basePath}index.html`;
                 } else {
-                    window.location.href = `/index.html?category=${category}`;
+                    window.location.href = `${basePath}index.html?category=${category}`;
                 }
             });
         });
