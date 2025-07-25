@@ -76,7 +76,11 @@ async function fetchPost(postId) {
             }
             
             // 타이틀 업데이트
-            document.title = data.title;
+            document.title = `${data.title} - faxul 골프공 리뷰 블로그`;
+            const titleElement = document.querySelector('title[data-post-title]');
+            if (titleElement) {
+                titleElement.textContent = document.title;
+            }
             
             // 기타 내용 표시
             document.getElementById('post-date').textContent = new Date(data.created_at).toLocaleDateString('ko-KR');
