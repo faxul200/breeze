@@ -75,7 +75,13 @@ window.addEventListener('load', function() {
                 categoryToggle.classList.remove('active');
                 
                 // Navigate to the selected category
-                const basePath = window.location.pathname.includes('/posts/') ? '../' : '';
+                // Get the current path parts
+                const pathParts = window.location.pathname.split('/');
+                const isPostDetail = pathParts.includes('posts');
+                const isPage = pathParts.includes('pages');
+                
+                // Always navigate to the root index.html
+                const basePath = isPostDetail || isPage ? '../' : '';
                 if (category === 'all') {
                     window.location.href = `${basePath}index.html`;
                 } else {

@@ -1,3 +1,92 @@
+// 검색 기능 초기화 함수
+function initSearchFunctionality() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const postGrid = document.querySelector('.posts-grid');
+
+    if (!searchInput || !searchBtn || !postGrid) return;
+
+    // 검색 버튼 클릭 이벤트
+    searchBtn.addEventListener('click', handleSearch);
+
+    // 엔터 키 이벤트
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    });
+
+    // 검색 처리 함수
+    function handleSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return;
+
+        // 모든 포스트 숨김
+        const allPosts = document.querySelectorAll('.post-card, .featured-post');
+        allPosts.forEach(post => {
+            post.style.display = 'none';
+        });
+
+        // 각 포스트에 대해 검색
+        allPosts.forEach(post => {
+            const title = post.querySelector('.post-title, .featured-title').textContent.toLowerCase();
+            if (title.includes(query)) {
+                // 검색 결과에 포함된 포스트 표시
+                post.style.display = 'block';
+                
+                // featured-post일 경우, 기존 스타일 유지
+                if (post.classList.contains('featured-post')) {
+                    // 기존 스타일 복원
+                    post.style.gridColumn = 'span 3';
+                    post.style.marginBottom = '2.5rem';
+                    post.style.display = 'flex';
+                    post.style.flexDirection = 'row';
+                    post.style.gap = '2rem';
+                    post.style.alignItems = 'stretch';
+                    post.style.width = '100%';
+                    post.style.maxWidth = '100%';
+                    post.style.background = 'linear-gradient(90deg, #f8fafc 60%, #eaf0fa 100%)';
+                    post.style.borderRadius = '8px';
+                    post.style.overflow = 'hidden';
+                    post.style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)';
+                    post.style.transition = 'box-shadow 0.2s, transform 0.2s';
+
+                    // 이미지 스타일 복원
+                    const image = post.querySelector('.post-image');
+                    if (image) {
+                        image.style.flex = '1 1 0';
+                        image.style.width = '50%';
+                        image.style.minWidth = '0';
+                        image.style.maxWidth = '100%';
+                        image.style.aspectRatio = '4/3';
+                        image.style.background = '#f4f6fa';
+                        image.style.display = 'flex';
+                        image.style.justifyContent = 'center';
+                        image.style.alignItems = 'center';
+                        image.style.overflow = 'hidden';
+                        image.style.maxHeight = '340px';
+                        image.style.borderRadius = '16px 0 0 16px';
+                    }
+
+                    // 컨텐츠 스타일 복원
+                    const content = post.querySelector('.post-content');
+                    if (content) {
+                        content.style.flex = '1 1 0';
+                        content.style.width = '50%';
+                        content.style.minWidth = '0';
+                        content.style.display = 'flex';
+                        content.style.flexDirection = 'column';
+                        content.style.justifyContent = 'center';
+                        content.style.gap = '0.7rem';
+                        content.style.padding = '1.5rem 2rem 1.5rem 2rem';
+                    }
+                }
+                post.classList.add('search-result');
+            }
+        });
+    }
+}
+
 // 다크 모드 및 헤더 이벤트 바인딩 함수
 window.initHeaderEvents = function() {
     // 다크 모드 토글 버튼
@@ -5,6 +94,9 @@ window.initHeaderEvents = function() {
     const moonIcon = document.getElementById('moon-icon');
     const sunIcon = document.getElementById('sun-icon');
     if (!themeToggle || !moonIcon || !sunIcon) return;
+
+    // 검색 기능 초기화
+    initSearchFunctionality();
 
     // 저장된 테마 확인
     const savedTheme = localStorage.getItem('theme');
