@@ -33,6 +33,30 @@ document.addEventListener('DOMContentLoaded', async function() {
         window.initHeaderEvents();
     }
 
+    // 검색 기능 비활성화 (메인 페이지가 아닌 경우)
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const isMainPage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
+    const isPostPage = window.location.pathname.includes('post.html');
+
+    if (!isMainPage || isPostPage) {
+        if (searchInput) {
+            searchInput.disabled = true;
+            searchInput.style.opacity = '0.5';
+            searchInput.style.cursor = 'not-allowed';
+        }
+        if (searchBtn) {
+            searchBtn.disabled = true;
+            searchBtn.style.opacity = '0.5';
+            searchBtn.style.cursor = 'not-allowed';
+        }
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
     // 헤더 삽입 후 블로그 목록 렌더링
     if (typeof fetchAndRenderBlogPosts === 'function') {
         fetchAndRenderBlogPosts();

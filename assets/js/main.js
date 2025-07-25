@@ -1,5 +1,31 @@
 // 검색 기능 초기화 함수
 function initSearchFunctionality() {
+    // URL 파싱을 통해 페이지 타입 확인
+    const url = new URL(window.location.href);
+    const path = url.pathname;
+    const search = url.search;
+
+    // 메인 페이지 확인
+    const isMainPage = path === '/' || path.endsWith('index.html');
+    // 포스트 페이지 확인 (쿼리 파라미터 포함)
+    const isPostPage = path.includes('posts/post.html') || (path.includes('post.html') && search.includes('id='));
+
+    if (!isMainPage || isPostPage) {
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        if (searchInput) {
+            searchInput.disabled = true;
+            searchInput.style.opacity = '0.5';
+            searchInput.style.cursor = 'not-allowed';
+        }
+        if (searchBtn) {
+            searchBtn.disabled = true;
+            searchBtn.style.opacity = '0.5';
+            searchBtn.style.cursor = 'not-allowed';
+        }
+        return;
+    }
+
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
     const postGrid = document.querySelector('.posts-grid');

@@ -143,8 +143,8 @@
   padding: 0;
 }
 
-.mobile-menu li {
-  margin-bottom: 1rem;
+.nav-menu li {
+  margin-bottom: -1rem;
 }
 
 .mobile-menu a {
