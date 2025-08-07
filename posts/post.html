@@ -14,6 +14,17 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://faxul.co.kr/posts/post.html?id=" data-post-id>
     <meta property="article:published_time" content="" data-post-published>
+    
+    <!-- 동적 canonical 태그 삽입 -->
+    <script>
+        // 현재 페이지의 전체 URL을 canonical href로 설정
+        const canonicalURL = window.location.origin + window.location.pathname + window.location.search;
+        const link = document.createElement('link');
+        link.rel = 'canonical';
+        link.href = canonicalURL;
+        document.head.appendChild(link);
+    </script>
+    
     <!-- 파비콘 설정 (자동으로 로드됨) -->
     <script src="../assets/js/favicon-config.js" defer></script>
     <link rel="stylesheet" href="../assets/css/style.css">
