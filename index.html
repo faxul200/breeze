@@ -2,10 +2,11 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <!-- 구글 애드센스 사이트 소유권 확인 메타 태그 추가 -->
+    <!-- 구글 애드센스 사이트 소유권 확인 메타 태그 -->
     <meta name="google-adsense-account" content="ca-pub-2930039630594930">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>골프공 리뷰 | 브랜드별 타구감 비교와 사용 후기 - faxul 블로그</title>
+    
     <!-- 파비콘 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -13,21 +14,35 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- SEO 메타데이터 -->
     <link rel="canonical" href="https://faxul.co.kr/" />
     <meta name="description" content="SRIXON, 던롭, 타이틀리스트 등 다양한 브랜드 골프공 리뷰. 타구감, 비거리, 디자인 비교를 통해 골프공 선택에 도움을 드립니다.">
     <meta name="keywords" content="골프공 리뷰, 브랜드 비교, 타구감, 골프용품, SRIXON, 타이틀리스트, 던롭, 비거리">
+    
+    <!-- Open Graph 메타데이터 -->
     <meta property="og:title" content="faxul 골프공 리뷰 블로그">
     <meta property="og:description" content="다양한 브랜드의 골프공을 리뷰하고 비교하는 faxul 블로그입니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://faxul.co.kr">
-    <!-- 파비콘 설정 (자동으로 로드됨) -->
+    <meta property="og:site_name" content="faxul 골프공 리뷰 블로그">
+    
+    <!-- Twitter Card 메타데이터 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="faxul 골프공 리뷰 블로그">
+    <meta name="twitter:description" content="다양한 브랜드의 골프공을 리뷰하고 비교하는 faxul 블로그입니다.">
+    
+    <!-- 파비콘 설정 스크립트 -->
     <script src="assets/js/favicon-config.js" defer></script>
+    
+    <!-- 스타일시트 -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- 구글 폰트 - Pretendard, Noto Sans KR -->
+    
+    <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <!-- 폰트어썸 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     
     <!-- Google AdSense 전역 스크립트 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2930039630594930"
@@ -36,6 +51,7 @@
 <body>
     <!-- 헤더 섹션 -->
     <div id="header-placeholder"></div>
+    
     <!-- 메인 콘텐츠 -->
     <main class="main">
         <div class="container">
@@ -45,30 +61,48 @@
                 <p class="blog-description">다양한 브랜드의 골프공을 직접 사용해보고, 디자인, 타구감, 비거리 등을 꼼꼼하게 리뷰합니다.<br>
                     구매 전 비교가 필요할 때 도움이 되는 콘텐츠를 매주 업데이트합니다.</p>
             </div>
-            <!-- Index Page Test Ad -->
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-2930039630594930"
-                data-ad-slot="8210388194"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            
+            <!-- 메인 페이지 광고 -->
+            <div class="ad-container" style="margin: 20px 0;">
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-2930039630594930"
+                    data-ad-slot="8210388194"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true">
+                </ins>
+            </div>
+            
             <!-- 특별 게시물 -->
             <div class="featured-post-container"></div>
+            
             <!-- 블로그 게시물 그리드 -->
             <div class="posts-grid"></div>
         </div>
     </main>
+    
     <!-- 푸터 섹션 -->
     <div id="footer-placeholder"></div>
-    <!-- Supabase CDN -->
+    
+    <!-- JavaScript 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <!-- 자바스크립트 -->
+    
+    <!-- 커스텀 JavaScript -->
     <script src="assets/js/category-dropdown.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/inject-header.js"></script>
     <script src="assets/js/inject-footer.js"></script>
+    
+    <!-- AdSense 초기화 -->
+    <script>
+        // DOM이 로드된 후 AdSense 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.warn('AdSense 광고 로드 중 오류:', e);
+            }
+        });
+    </script>
 </body>
 </html>
