@@ -80,6 +80,7 @@ async function fetchPost(postId) {
             .from('tb_blog_posts')
             .select('*')
             .eq('id', postId)
+            .eq('display_yn', 'Y')   // 🔒 display_yn 조건 추가
             .single();
 
         if (error || !data) {
