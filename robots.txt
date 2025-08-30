@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# 사이트맵 위치
+Sitemap: https://faxul.co.kr/sitemap.xml
+
+# 크롤 지연 (선택사항)
+Crawl-delay: 1

@@ -5,31 +5,67 @@
     <!-- 구글 애드센스 사이트 소유권 확인 메타 태그 -->
     <meta name="google-adsense-account" content="ca-pub-2930039630594930">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-post-title>포스트 제목 - faxul 골프공 리뷰 블로그</title>
-
-    <!-- SEO 메타데이터 -->
-    <meta name="description" content="" data-post-summary>
-    <meta name="keywords" content="" data-post-tags>
-    <meta property="og:title" content="" data-post-title>
-    <meta property="og:description" content="" data-post-summary>
+    
+    <!-- 기본 메타 태그 (JavaScript로 업데이트됨) -->
+    <title>골프공 리뷰 - faxul 블로그</title>
+    <meta name="description" content="다양한 브랜드의 골프공을 리뷰하고 비교하는 faxul 블로그입니다.">
+    <meta name="keywords" content="골프공 리뷰, 브랜드 비교, 타구감, 골프용품">
+    
+    <!-- Open Graph 메타데이터 -->
+    <meta property="og:title" content="골프공 리뷰 - faxul 블로그">
+    <meta property="og:description" content="다양한 브랜드의 골프공을 리뷰하고 비교하는 faxul 블로그입니다.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://faxul.co.kr/posts/post.html?id=" data-post-id>
-    <meta property="article:published_time" content="" data-post-published>
+    <meta property="og:url" content="https://faxul.co.kr/posts/post.html">
+    <meta property="og:site_name" content="faxul 골프공 리뷰 블로그">
+    <meta property="article:published_time" content="">
+    
+    <!-- Twitter Card 메타데이터 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="골프공 리뷰 - faxul 블로그">
+    <meta name="twitter:description" content="다양한 브랜드의 골프공을 리뷰하고 비교하는 faxul 블로그입니다.">
     
     <!-- 동적 canonical 태그 -->
-    <script>
-        const canonicalURL = window.location.origin + window.location.pathname + window.location.search;
-        const link = document.createElement('link');
-        link.rel = 'canonical';
-        link.href = canonicalURL;
-        document.head.appendChild(link);
+    <link rel="canonical" href="https://faxul.co.kr/posts/post.html">
+    
+    <!-- 구조화된 데이터 (JSON-LD) -->
+    <script type="application/ld+json" id="structured-data">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "골프공 리뷰",
+        "description": "다양한 브랜드의 골프공을 리뷰하고 비교하는 블로그 글입니다.",
+        "author": {
+            "@type": "Person",
+            "name": "faxul"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "faxul 블로그",
+            "url": "https://faxul.co.kr"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://faxul.co.kr/posts/post.html"
+        },
+        "datePublished": "",
+        "dateModified": ""
+    }
     </script>
     
     <!-- 파비콘 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
     <script src="../assets/js/favicon-config.js" defer></script>
     <link rel="stylesheet" href="../assets/css/style.css">
+    
     <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <!-- 폰트어썸 아이콘 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -46,20 +82,26 @@
         <div class="container">
             <article class="post-container" id="post-container">
                 <header class="post-header">
-                    <h1 class="post-title" id="post-title" style="display:none;"></h1>
+                    <!-- 기본 제목 (SEO용) -->
+                    <h1 class="post-title" id="post-title">골프공 리뷰</h1>
                     <div class="post-meta">
                         <span class="post-date" id="post-date"></span>
                         <span class="post-author" id="post-author"></span>
                     </div>
                 </header>
+                
+                <!-- 기본 콘텐츠 (SEO용) -->
+                <div class="post-content" id="post-content">
+                    <p>골프공 리뷰 콘텐츠를 로딩 중입니다...</p>
+                </div>
+                
                 <img id="post-image" style="display:none;max-width:100%;height:auto;" />
-                <div class="post-content" id="post-content"></div>
                 <div class="post-tags" id="post-tags"></div>
 
-                <!-- ✅ 광고는 글이 있을 때만 삽입됨 -->
+                <!-- 광고는 글이 있을 때만 삽입됨 -->
                 <div id="ads-container" style="margin-top:20px;"></div>
 
-                <!-- ✅ 글이 없을 때 안내 메시지 (post.js에서만 제어) -->
+                <!-- 글이 없을 때 안내 메시지 -->
                 <div id="no-post-message" style="display:none; text-align:center; padding:40px 20px;">
                     <h2>해당 글을 찾을 수 없습니다.</h2>
                     <p>삭제되었거나 존재하지 않는 글입니다.<br>
